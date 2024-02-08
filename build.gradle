@@ -28,6 +28,9 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-eureka-client', version: '4.1.0'
+	implementation group: 'org.springframework.cloud', name: 'spring-cloud-dependencies', version: '2023.0.0', ext: 'pom'
+
 }
 
 tasks.named('test') {
