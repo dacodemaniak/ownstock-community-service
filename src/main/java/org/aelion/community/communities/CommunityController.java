@@ -1,2 +1,26 @@
-package org.aelion.community.communities;public class CommunityController {
+package org.aelion.community.communities;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api/v1/communities")
+public class CommunityController {
+    @Autowired
+    private CommunityService service;
+    @GetMapping
+    public ResponseEntity<?> fetchAll() {
+        return service.fetchCommunities();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> fetchCommunity(@PathVariable("id") String id) {
+        return service.fetchById(id);
+    }
+
+    @PostMapping
+    public ResponseEntity<?> createCommunity(@RequestBody Community community) {
+        return service.createCommunity(community);
+    }
 }
